@@ -111,7 +111,9 @@ cbigStep (While b c,s)
  where 
    (_,s0) = cbigStep(c,s)
 
---cbigStep (TenTimes C,s)
+--cbigStep (TenTimes c,s)
+-- | cbigStep(Seq c (Loop((Num 0) (Num 10) c,s))) = (Skip,s)
+-- | otherwise = (Skip,s)
 
 cbigStep (Repeat c b,s)
  | bbigStep(b,s0) = (Skip,s0)
@@ -124,7 +126,12 @@ cbigStep(Loop e1 e2 c,s)
  | otherwise = (Skip,s)
 
  -- DuplaATrib E E E E -- recebe 2 variáveis e 2 expressões (DuplaATrib (Var v1) (Var v2) e1 e2) e faz v1:=e1 e v2:=e2
- --AtribCond B E E E --- AtribCond b (Var v1) e1 e2: se b for verdade, então faz v1:e1, se B for falso faz v1:=e2
+cbigStep (AtribCond b x e1 e2,s)
+ | bbigStep(b,s) = cbigStep((Atrib x e1,s))
+ | otherwise = cbigStep((Atrib x e2,s))
+
+
+--- AtribCond b (Var v1) e1 e2: se b for verdade, então faz v1:e1, se B for falso faz v1:=e2
 -- Swap E E -- swap(x,y): troca o conteúdo das variáveis x e y 
 -----------------------------------------------------------------------------------------------------
 --- * Loop
