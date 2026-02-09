@@ -1,5 +1,3 @@
-
-
 data E = Num Int
       |Var String
       |Soma E E
