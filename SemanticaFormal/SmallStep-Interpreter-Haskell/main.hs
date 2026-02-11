@@ -168,3 +168,13 @@ fatorial = (Seq (Atrib (Var "y") (Num 1))
 ----------------------------------------------------------------------------------------------------
 ---Testes usando os interpretadores
 ----------------------------------------------------------------------------------------------------
+
+
+
+repeatSigma :: Memoria
+repeatSigma = [("x",1),("y",2)]
+
+repeatUntil :: C
+repeatUntil = (Repeat (Seq (Atrib (Var "x") (Soma (Var "x") (Var "y")))
+                           (Atrib (Var "y") (Soma (Var "y") (Num 1))))
+                       (Igual (Var "y") (Num 101)))
