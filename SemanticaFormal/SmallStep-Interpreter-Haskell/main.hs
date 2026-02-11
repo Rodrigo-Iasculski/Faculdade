@@ -166,11 +166,9 @@ fatorial = (Seq (Atrib (Var "y") (Num 1))
                        (Seq (Atrib (Var "y") (Mult (Var "y") (Var "x")))
                             (Atrib (Var "x") (Sub (Var "x") (Num 1))))))
 ----------------------------------------------------------------------------------------------------
----Testes usando os interpretadores
+---Testes pra usar
 ----------------------------------------------------------------------------------------------------
-
-
-
+--conta os 100 primeiros digitos
 repeatSigma :: Memoria
 repeatSigma = [("x",1),("y",2)]
 
@@ -178,3 +176,9 @@ repeatUntil :: C
 repeatUntil = (Repeat (Seq (Atrib (Var "x") (Soma (Var "x") (Var "y")))
                            (Atrib (Var "y") (Soma (Var "y") (Num 1))))
                        (Igual (Var "y") (Num 101)))
+
+--Mostra o exp de 10 da base, atualmente base 2
+expSigma :: Memoria
+expSigma = [("x",1)]
+
+exp10 = (Loop (Num 0)(Num 9) (Atrib (Var "x") (Mult (Var "x")(Num 2))))
