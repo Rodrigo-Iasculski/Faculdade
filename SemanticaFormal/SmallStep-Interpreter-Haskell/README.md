@@ -1,4 +1,4 @@
-# SmallStep-Interpreter-Haskellã
+# SmallStep-Interpreter-Haskell
 Projeto feito no 6º semestre de ciência da computação na disciplina de Semântica Formal na UFPEl. O projeto mostra a criação da semântica small-step para os seguintes comandos:
 
 - esmallStep (Sub e1 e2,σ)   - Subtração
